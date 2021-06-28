@@ -12,12 +12,8 @@ public class StatsService {
     }
 
     public long averageSalesPerMonth(long[] sales) {
-        long sum = 0;
-        for (long sale : sales) {
-            // аналог sum = sum + purchase;
-            sum += sale;
-        }
-        long averageSalesPerMonth = sum / sales.length;
+
+        long averageSalesPerMonth = theSumOfAllSales(sales) /sales.length;
         return averageSalesPerMonth;
     }
 
@@ -50,35 +46,24 @@ public class StatsService {
 
 
     public long lessThenMonthlyAverage(long[] sales) {
-        long sum = 0;
-        for (long sale : sales) {
-            // аналог sum = sum + purchase;
-            sum += sale;
-        }
-        long averageSalesPerMonth = sum / sales.length;
 
         int less = 0;
         for (long sale : sales)
-            if (sale < averageSalesPerMonth) {
+            if (sale < averageSalesPerMonth(sales)) {
                 less = less + 1;
             }
         return less;
     }
 
-    public long moreThenMonthlyAverage(long[] sales) {
-        long sum = 0;
-        for (long sale : sales) {
-            // аналог sum = sum + purchase;
-            sum += sale;
-        }
-        long averageSalesPerMonth = sum / sales.length;
+    public long moreThenMonthlyAverage(long[] sales){
 
         int more = 0;
         for (long sale : sales)
-            if (sale > averageSalesPerMonth) {
+            if (sale > averageSalesPerMonth(sales)) {
                 more = more + 1;
             }
         return more;
     }
+
 
 }
