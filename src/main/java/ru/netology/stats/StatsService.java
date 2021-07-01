@@ -46,24 +46,23 @@ public class StatsService {
 
 
     public long lessThenMonthlyAverage(long[] sales) {
-
+        long a = averageSalesPerMonth(sales);
         int less = 0;
         for (long sale : sales)
-            if (sale < averageSalesPerMonth(sales)) {
+            if (sale < a) {
                 less = less + 1;
             }
         return less;
     }
 
     public long moreThenMonthlyAverage(long[] sales){
-
+        long a = averageSalesPerMonth(sales);
         int more = 0;
         for (long sale : sales)
-            if (sale > averageSalesPerMonth(sales)) {
+            if (sale > a) {
                 more = more + 1;
             }
         return more;
     }
-
 
 }
